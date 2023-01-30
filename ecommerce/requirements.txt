@@ -1,0 +1,4 @@
+Django
+django-mptt
+paypal-checkout-serversdk==1.0.1
+Pillow==8.1.0

@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(255, 239, 220);
+}
+
+#cart-icon {
+    width: 25px;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+#cart-total {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    width: 20px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.account-form input {
+    border: 2px solid #ccc;
+    height: calc(2em + .75rem + 2px);
+}
+
+.account-form input:focus {
+    border-color: #1497ff;
+    box-shadow: none;
+}
+
+.login,
+.image {
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('https://picsum.photos/id/433/1080');
+    background-size: cover;
+    background-position: center center;
+}
+
+.container-fluid {
+    max-width: 100%;
+}
+
+.form-control {
+    border: 2px solid #ccc;
+}

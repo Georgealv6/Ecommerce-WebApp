@@ -1,0 +1,27 @@
+{% extends 'main.html' %} {% load static %} {% block title %} {% if category %}{{ category.name }}{% else %}Products{% endif %}{% endblock %} {% block content %}
+
+<main>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="pb-3 h5">MKER Products</div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for products in product %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        {% for image in products.product_image.all %}{% if image.is_feature %}
+                        <a href="{{ products.get_absolute_url }}"><img class="img-fluid" src="{{ image.image.url }}" alt="{{ image.image.alt_text }}"></a>{% endif %}{% endfor %}
+                        <div class="card-body">
+                            <p class="card-text">
+                                <a class="text-dark text-decoration-none" href="{{ products.get_absolute_url }}">{{ products.title }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock content %}

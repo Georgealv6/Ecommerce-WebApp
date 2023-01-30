@@ -1,0 +1,47 @@
+{% extends 'main.html' %} {% load static %} {% block title %} MKER {% endblock %} {% block content %}
+<main>
+    <section class="py-5 text-center container">
+        <div class="row py-lg-3">
+            <h1 class="display-5 fw-bold">MKER brand</h1>
+            <div class="col-lg-6 col-md-6 mx-auto">
+                <p class="lead mb-4">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-dark btn-lg px-4 gap-3">Store</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg px-4">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="album py-5 bg-light">
+                <div class="container">
+                    <div class="pb-3 h5">MKER's Popular Products</div>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        {% for products in product %}
+                        <div class="col">
+                            <div class="card border-0">
+                                {% for image in products.product_image.all %} {% if image.is_feature %}
+                                <a href="{{ products.get_absolute_url }}"><img class="img-fluid" src="{{ image.image.url }}" alt="{{ image.image.alt_text }}"></a>{% endif %}{% endfor %}
+                                <div class="card-body px-0">
+                                    <p class="card-text">
+                                        <a class="text-dark text-decoration-none" href="{{ products.get_absolute_url }}">{{ products.title|slice:":50" }}</a>
+                                    </p>
+                                    <div class="fw-bold">${{ products.regular_price }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+
+{% endblock content %}
